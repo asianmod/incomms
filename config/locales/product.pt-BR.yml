@@ -1,0 +1,10 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      product: Produto
+    attributes:
+      product:
+        name: Nome
+        item_desc: Descrição do produto
+        price: Valor

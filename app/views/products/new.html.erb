@@ -1,0 +1,15 @@
+<%= form_with model: @product, local: true do |f| %>
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :item_desc, 'Descrição do produto' %>
+    <%= f.text_field :item_desc %>
+  </div>
+  <div>
+    <%= f.label :price, 'Valor' %>
+    <%= f.number_field :price, min: 0 %>
+  </div>
+  <%= f.submit 'Confirmar' %>
+<% end %>
