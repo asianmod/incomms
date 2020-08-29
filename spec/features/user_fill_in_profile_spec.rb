@@ -4,7 +4,7 @@ feature 'user fill profile' do
 
   scenario 'successfully' do
     # Arrange
-    User.create!(name: 'João Almeida', email: 'joao@email.com', 
+    User.create!(name: 'Client Test', email: 'test@email.com', 
                  password: '12345678')
     # Act
     login_as(user)
