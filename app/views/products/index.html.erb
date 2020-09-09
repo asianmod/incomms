@@ -2,15 +2,16 @@
 
 <%= link_to 'Catalogar um novo item', new_product_path %>
 
+<%= form_with url: products_search_path, method: :get do |f| %>
+  <%= f.label :q, 'Busque aqui!' %>
+  <%= f.text_field :q %>
+  <%= f.submit 'Buscar' %>
+<% end %>
 
 <dl> <%#lista de descrição%>
-
-<% @products.each do |sim| %>
-
-  <dt>Nome do produto</dt> <%#definição do produto%>
-    
-    <dd> <%= link_to "#{sim.item_desc}", sim %> </dd> <%#descrição do produto%>
-
+  <% @products.each do |sim| %>
+  <dt> Nome do produto: </dt> 
+   <dd> <%= link_to "#{sim.name}", sim %> </dd> <%#descrição do produto%>
 <% end %>
 
 </dl>

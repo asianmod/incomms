@@ -1,0 +1,43 @@
+<%= link_to 'Voltar', products_path %>
+
+<h1><%= @trading_log.product.name %></h1>
+<dl> 
+
+  <dt><%= Product.human_attribute_name(:name) %></dt> 
+  <dd><%= @trading_log.product.name %></dd> 
+  <dt><%= Product.human_attribute_name(:item_desc) %></dt> 
+  <dd><%= @trading_log.product.item_desc %></dd>
+  <dt><%= Product.human_attribute_name(:price) %></dt> 
+  <dd><%= number_to_currency @trading_log.product.price %></dd> 
+  <dt><%= Profile.human_attribute_name(:name) %></dt> 
+  <dd><%= @trading_log.product.profile.name %></dd> 
+   
+</dl>
+
+<% if @trading_log.log_comments.any? %>
+  <% @trading_log.log_comments.each do |c|%>
+    <dt><%= c.profile.name %></dt> 
+    <dd><%= c.private_message %></dd>
+  <%end%>
+  <%else%>
+    <h1>Não há histórico</h1>
+<%end%>
+<%= form_with model: @trading_log.log_comments, url: trading_logs_comment_path, method: :post do |pc| %>
+    <div>
+        <%= pc.hidden_field :trading_log_id, value: @trading_log.id %>
+        <%= pc.label :private_message, 'Comentário' %>
+        <%= pc.text_field :private_message %>
+    </div>
+    <%= pc.submit 'Enviar' %>
+<%end%>
+
+<% if @trading_log.product.profile.email == current_user.email %>#Verifico se ele é o vendedor
+  <%= form_with model: @trading_log, url: trading_logs_confirm_path, method: :post do |pc| %>
+    <%= pc.hidden_field :trading_log_id, value: @trading_log.id %>
+    <%= pc.submit 'Confirmar Venda' %>
+  <%end%>
+  <%= form_with model: @trading_log, url: trading_logs_cancel_path, method: :post do |pc| %>
+    <%= pc.hidden_field :trading_log_id, value: @trading_log.id %>
+    <%= pc.submit 'Cancelar Venda' %> 
+  <%end%>
+<% end %>

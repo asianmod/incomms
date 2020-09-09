@@ -1,0 +1,8 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      log_comment: Comentário
+    attributes:
+      log_comment:
+        private_message: Comentário

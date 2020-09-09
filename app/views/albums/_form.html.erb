@@ -1,0 +1,6 @@
+<%= form_with model: @album , local: true do |f| %>
+  <div class = "field" >
+  <%= f.label :images %>
+  <%= f.file_field :images, multiple: true %>
+  </div>
+<% end %>

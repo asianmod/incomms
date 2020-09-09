@@ -1,0 +1,19 @@
+<%= form_with model: @profile, local: true do |f| %>
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :sector, 'Setor' %>
+    <%= f.text_field :sector %>
+  </div>
+  <div>
+    <%= f.label :region, 'Região' %>
+    <%= f.text_field :region %>
+  </div>
+  <div>
+    <%= f.label :company, 'Empresa' %>
+    <%= f.text_field :company %>
+  </div>
+  <%= f.submit 'Salvar' %>
+<% end %>

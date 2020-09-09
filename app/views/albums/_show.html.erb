@@ -1,0 +1,9 @@
+<% if @product.album.any? %>
+  <div>
+    <% @product.album.images.each do |image| %>
+      <%= image_tag image %>
+    <% end %>
+  </div>
+<% else %>
+  <p> Não há fotos </p>
+<% end %>

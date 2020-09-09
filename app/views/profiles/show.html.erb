@@ -1,0 +1,16 @@
+<%= link_to 'Voltar', profiles_path %>
+
+<h1><%= @profile.name %></h1>
+
+<dl> 
+
+  <dt><%= Profile.human_attribute_name(:name) %></dt> 
+  <dd><%= @profile.name %></dd> 
+  <dt><%= Profile.human_attribute_name(:sector) %></dt> 
+  <dd><%= @profile.sector %></dd>
+  <dt><%= Profile.human_attribute_name(:region) %></dt> 
+  <dd><%= @profile.region %></dd>
+  <dt><%= Profile.human_attribute_name(:company) %></dt> 
+  <dd><%= @profile.company %></dd>
+   
+</dl>

@@ -2,6 +2,7 @@
 
 
 <h1><%= @product.name %></h1>
+  <%= @product.token %>
 <dl> 
 
   <dt><%= Product.human_attribute_name(:name) %></dt> 
@@ -10,5 +11,20 @@
   <dd><%= @product.item_desc %></dd>
   <dt><%= Product.human_attribute_name(:price) %></dt> 
   <dd><%= number_to_currency @product.price %></dd> 
+  <dt><%= Profile.human_attribute_name(:name) %></dt> 
+  <dd><%= @product.profile.name %></dd> 
    
 </dl>
+<%= form_with url: trading_logs_buying_path, method: :post do |pc| %>
+    <div>
+      <%= pc.hidden_field :product_id, value: @product.id %>
+    </div>
+    <%= pc.submit 'Comprar' %>
+<%end%>
+
+<% if @product.comments.any? %>
+  <%= render partial: 'comments/comments', locals: { comments: @product.comments } %>
+<%else%>
+    <h1>Não há comentários</h1>
+<%end%>
+<%= render partial: 'comments/form', locals: { comment: @product.comments } %>

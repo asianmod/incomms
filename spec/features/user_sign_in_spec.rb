@@ -6,6 +6,7 @@ feature 'User sign in' do
 
     visit root_path
     expect(page).to have_link('Entrar')
+    
   end
   
   scenario 'successfully' do
@@ -19,10 +20,10 @@ feature 'User sign in' do
     fill_in 'Senha', with: '12345678'
     click_on 'Login'
 
-    expect(page).to have_content 'Client Test'
-    expect(page).to have_content 'Login efetuado com sucesso'
-    expect(page).to have_link 'Sair'
-    expect(page).not_to have_link 'Entrar'
+    expect(page).to have_content('Client Test')
+    expect(page).to have_content('Login efetuado com sucesso')
+    expect(page).to have_link('Sair')
+    expect(page).not_to have_link('Entrar')
 
   end
   
@@ -30,19 +31,18 @@ feature 'User sign in' do
     
     User.create!(name: 'Client Test', email: 'test@email.com', 
                  password: '12345678')
-       
+
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'test@email.com'
     fill_in 'Senha', with: '12345678'
     click_on 'Login'
     click_on 'Sair'
-    login_as user, scope: :user
     
-    expect(page).not_to have_content 'Client Test'
-    expect(page).to have_content 'Logout efetuado com sucesso'
-    expect(page).to have_link 'Entrar'
-    expect(page).not_to have_link 'Sair'
+    
+    expect(page).not_to have_content('Client Test')
+    expect(page).to have_link('Entrar')
+    expect(page).not_to have_link('Sair')
     
   end
 end  
