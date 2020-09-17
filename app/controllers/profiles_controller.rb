@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile_params = params.require(:profile)
-                            .permit(:name, :sector, :region, :company)
+                            .permit(:name, :sector, :region, :company, :email)
     @profile = Profile.create(@profile_params)
     @profile.email = current_user.email
     @profile.user = current_user
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile_params = params.require(:profile)
-                            .permit(:name, :sector, :region, :company)
+                            .permit(:name, :sector, :region, :company, :email)
     @profile = Profile.find_by(id: params[:id])
     if @profile.update(@profile_params)
       redirect_to @profile

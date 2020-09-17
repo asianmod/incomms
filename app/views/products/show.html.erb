@@ -1,5 +1,12 @@
 <%= link_to 'Voltar', products_path %>
 
+<% if @product.errors.any? %>
+  <ul>
+    <% @product.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h1><%= @product.name %></h1>
   <%= @product.token %>

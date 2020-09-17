@@ -1,3 +1,11 @@
+<% if @profile.errors.any? %>
+  <ul>
+    <% @profile.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @profile, local: true do |f| %>
   <div>
     <%= f.label :name, 'Nome' %>
@@ -14,6 +22,10 @@
   <div>
     <%= f.label :company, 'Empresa' %>
     <%= f.text_field :company %>
+  </div>
+  <div>
+    <%= f.label :email, 'Email' %>
+    <%= f.text_field :email %>
   </div>
   <%= f.submit 'Salvar' %>
 <% end %>

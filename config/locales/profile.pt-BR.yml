@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      profile: Perfil
+    attributes:
+      profile:
+        name: Nome
+        sector: Setor
+        region: Região
+        company: Empresa
+        email: Email

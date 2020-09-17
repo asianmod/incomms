@@ -80,4 +80,9 @@ feature 'user start chatting' do
     expect(page).to have_content('Pedro')
     expect(page).to have_content('Não, só ariranha ferroviária.')
   end
+
+  scenario 'comment too short' do
+    
+    
+  end
 end
