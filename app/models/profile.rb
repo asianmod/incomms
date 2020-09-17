@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
 
   validates :name, :sector, :region, 
-            :company, :email presence: true
+            :company, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
 
   has_one_attached :picture

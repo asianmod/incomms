@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
-  validates :name, :item_desc, :price, :status
-              presence: true
+  validates :name, :item_desc, :price, :status,
+             presence: true
   
   belongs_to :profile
   has_many :comments

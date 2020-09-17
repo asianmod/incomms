@@ -9,10 +9,6 @@ RSpec.describe Comment, type: :model do
       comment.valid?
 
       expect(comment.errors[:replay]).to include('não pode ficar em branco')
-      expect(comment.errors[:profile_id]).to include('não pode ficar em '\
-                                                      'branco')
-      expect(comment.errors[:product_id])
-        .to include('não pode ficar em branco')
     end
   end
 end
