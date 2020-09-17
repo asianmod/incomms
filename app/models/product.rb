@@ -2,7 +2,9 @@ class Product < ApplicationRecord
 
   validates :name, :item_desc, :price, :status,
              presence: true
-  
+  validates :price, numericality: {greater_than_or_equal_to: 0}
+  validates :name, length: { minimum: 5, maximum: 150 }
+
   belongs_to :profile
   has_many :comments
   before_create :generate_token
