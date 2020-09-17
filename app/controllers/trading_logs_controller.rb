@@ -34,14 +34,13 @@ class TradingLogsController < ApplicationController
     @trading_log.canceled!
     @product = Product.find_by(id: @trading_log)
     @product.stand_by!
-    redirect_to trading_logs_path # retorna para lista de produtos em negociação
-  end
+    redirect_to trading_logs_path
 
   def confirm
     @trading_log_params = params.require(:trading_log).permit(:trading_log_id)
     @trading_log = TradingLog.find_by(id: @trading_log_params[:trading_log_id])
     @trading_log.confirmed!
-    redirect_to trading_logs_path # retorna para lista de produtos em negociação
+    redirect_to trading_logs_path
   end
 end
 
