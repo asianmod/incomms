@@ -18,7 +18,7 @@ feature 'user searches product' do
                                 user: userPedro)
 
   produtoHollywood = Product.create(name: 'Hollywood', item_desc: 'item 123',
-                                     price: 199, profile: profilePedro)
+                                     price: 199, status: 0, profile: profilePedro)
 
                                      
   login_as userKihare, scope: :user
