@@ -26,4 +26,8 @@ feature 'User register product' do
     expect(page).to have_link('Voltar')
 
   end
+
+  scenario 'cannot be blank' do
+    
+  end
 end

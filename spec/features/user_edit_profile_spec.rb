@@ -25,4 +25,12 @@ feature 'user fill profile' do
     expect(page).to have_content('SP')
     expect(page).to have_content('Boxbox')
   end
+
+  scenario 'cannot be blank' do
+    
+  end
+
+  scenario 'must be unique' do
+    
+  end
 end

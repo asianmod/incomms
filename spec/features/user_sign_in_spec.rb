@@ -45,4 +45,12 @@ feature 'User sign in' do
     expect(page).not_to have_link('Sair')
     
   end
+
+  scenario 'cannot be blank' do
+    
+  end
+
+  scenario 'must be unique' do
+    
+  end
 end  

@@ -1,7 +1,5 @@
 class TradingLogsController < ApplicationController
-
   before_action :authenticate_user!
-
   def buying
     @trading_log = TradingLog.new
     @product = Product.find_by(id: params[:product_id])
