@@ -32,14 +32,14 @@ RSpec.describe LogComment, type: :model do
       ('é muito longo (máximo: 300 caracteres)')
     end
 
-    it 'comment cannot be below 1' do
+    it 'comment cannot be below 2' do
       
-      log_comment = LogComment.new(private_message: '')
+      log_comment = LogComment.new(private_message: 'a')
 
       log_comment.valid?
 
       expect(log_comment.errors[:private_message]).to include
-      ('é muito curto (mínimo: 1 caracter)')
+      ('é muito curto (mínimo: 2 caracteres)')
     end
   end
 end

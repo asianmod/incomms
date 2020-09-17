@@ -16,13 +16,13 @@ RSpec.describe Profile, type: :model do
       expect(profile.errors[:company]).to include('não pode ficar em branco')
     end
 
-    it 'name cannot be below 1' do
+    it 'name cannot be below 2' do
       
-      profile = Profile.new(name: '')
+      profile = Profile.new(name: 'a')
 
       profile.valid?
 
-      expect(profile.errors[:name]).to include('é muito curto (mínimo: 1 caracter)')
+      expect(profile.errors[:name]).to include('é muito curto (mínimo: 2 caracteres)')
     end
 
     it 'name cannot be above 150' do

@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
   validates :name, :sector, :region, 
             :company, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
-  validates :name, length: { minimum: 1, maximum: 150 }
+  validates :name, length: { minimum: 2, maximum: 150 }
 
   has_one_attached :picture
   belongs_to :user

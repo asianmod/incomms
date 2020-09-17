@@ -49,7 +49,7 @@ feature 'user fill profile' do
     expect(page).to have_content('Setor não pode ficar em branco')
     expect(page).to have_content('Região não pode ficar em branco')
     expect(page).to have_content('Empresa não pode ficar em branco')
-    expect(page).to have_content('Nome é muito curto (mínimo: 1 caracter)')
+    expect(page).to have_content('Nome é muito curto (mínimo: 2 caracteres)')
   end
 
   scenario 'email must be unique' do
