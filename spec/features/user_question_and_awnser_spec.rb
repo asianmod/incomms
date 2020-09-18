@@ -98,7 +98,6 @@ feature 'User question and awnser' do
     expect(page).to have_content('Sim Riot')
     expect(page).to have_content('R$ 50,00')
     expect(page).to have_content('Leo')
-    expect(page).to have_content('Não há comentários')
-    
+    expect(page).to have_content('Não há comentários') 
   end
 end

@@ -22,11 +22,15 @@ class ProductsController < ApplicationController
   def create
     @product_params = params.require(:product)
                             .permit(:name, :item_desc, :price)
-    @product = Product.create(@product_params)
+    @product = Product.new(@product_params)
     @product.profile_id = Profile.find_by(email: current_user.email).id
-    @product.save
-    @product.stand_by!    
-    redirect_to product_path(id: @product.id)
+    if @product.save
+      @product.stand_by! 
+      redirect_to @product
+    else 
+      render :new
+    end    
+    
   end
 
   def comment
@@ -34,7 +38,6 @@ class ProductsController < ApplicationController
     @comment = Comment.create(@comment_params)
     @comment.profile_id = Profile.find_by(email: current_user.email).id
     @comment.save
-    #@comment.profile  = Profile.find_by(email: current_user.email)
     redirect_to product_path(id: @comment.product_id)
   end
 end

@@ -1,13 +1,5 @@
 <%= link_to 'Voltar', products_path %>
 
-<% if @product.errors.any? %>
-  <ul>
-    <% @product.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <h1><%= @product.name %></h1>
   <%= @product.token %>
 <dl> 
@@ -22,6 +14,7 @@
   <dd><%= @product.profile.name %></dd> 
    
 </dl>
+
 <%= form_with url: trading_logs_buying_path, method: :post do |pc| %>
     <div>
       <%= pc.hidden_field :product_id, value: @product.id %>

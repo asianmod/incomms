@@ -14,6 +14,7 @@
    
 </dl>
 
+
 <% if @trading_log.log_comments.any? %>
   <% @trading_log.log_comments.each do |c|%>
     <dt><%= c.profile.name %></dt> 
@@ -22,6 +23,7 @@
   <%else%>
     <h1>Não há histórico</h1>
 <%end%>
+
 <%= form_with model: @trading_log.log_comments, url: trading_logs_comment_path, method: :post do |pc| %>
     <div>
         <%= pc.hidden_field :trading_log_id, value: @trading_log.id %>
